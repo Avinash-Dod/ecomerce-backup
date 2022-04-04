@@ -570,6 +570,7 @@ ol {
 
 .hero.hero-normal .hero__categories {
 	position: relative;
+	overflow: ;
 }
 
 .hero.hero-normal .hero__categories ul {

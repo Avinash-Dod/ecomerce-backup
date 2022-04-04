@@ -3,10 +3,14 @@ import Header from "../components/Header"
 import productDetail from '../userData.json'
 import ProductHover from "../components/productHover";
 import Footer from "../components/Footer";
+import SearchBar from "../components/Search";
+
+
 
 const productData = productDetail.productData;
-
 const OurProducts = () => {
+
+
 
   return (
     <>
@@ -19,10 +23,10 @@ const OurProducts = () => {
             <div className="col-md-12">
               <div className="section-heading">
                 <h2>Latest Products</h2>
-                <form action="#">
-                  <input type="text"  placeholder="What do yo u need?" />
-                  <button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i> </button>
-                </form>
+                <SearchBar />
+               
+
+  
 
                 <a href="/ourproducts">view all products <i className="fa fa-angle-right"></i></a>
 

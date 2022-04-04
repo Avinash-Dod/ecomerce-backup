@@ -5,8 +5,11 @@ import BannerHome from "../components/BannerHome";
 import productDetail from '../userData.json'
 import ProductHover from "../components/productHover";
 
+
 const productData = productDetail.productData;
 function Home() {
+  
+
   
   return (
     <>
