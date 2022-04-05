@@ -73,25 +73,25 @@ const SignUp = () => {
 
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>
-                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e)=>setUsername(e.target.value)} value={username} />
+                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e)=>setUsername(e.target.value)} value={username} required/>
                   </div>
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>
-                    <input className="input-field" type="email" placeholder="email" name="email" onChange={(e)=>setEmail(e.target.value)} value={email} />
+                    <input className="input-field" type="email" placeholder="email" name="email" onChange={(e)=>setEmail(e.target.value)} value={email}  required/>
                   </div>
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>
-                    <input className="input-field" type="text" placeholder="Mobile Number" name="mno" onChange={(e)=>setMno(e.target.value)} value={mno} />
+                    <input className="input-field" type="text" placeholder="Mobile Number" name="mno" onChange={(e)=>setMno(e.target.value)} value={mno} required/>
                   </div>
 
 
                   <div className="input-container">
                     <i className="fa fa-key icon"></i>
-                    <input className="input-field" type="password" placeholder="Password" name="psw" onChange={(e)=>setPassword(e.target.value)} value={password} />
+                    <input className="input-field" type="password" placeholder="Password" name="psw" onChange={(e)=>setPassword(e.target.value)} value={password} required/>
                   </div>
                   <div className="input-container">
                     <i className="fa fa-key icon"></i>
-                    <input className="input-field" type="password" placeholder="Confirm Password" name="cpsw" onChange={(e)=>setCpassword(e.target.value)} value={cPassword} />
+                    <input className="input-field" type="password" placeholder="Confirm Password" name="cpsw" onChange={(e)=>setCpassword(e.target.value)} value={cPassword} required/>
                   </div>
 
                   <button type="submit" className="btn primary-btn">Register </button>

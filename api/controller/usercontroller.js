@@ -7,7 +7,7 @@ const User = require("../model/userSchema");
 const multer = require("multer");
 const { application } = require("express");
 const storage = multer.diskStorage({
-  destination: function (_req, _file, cb) {
+  destination: function (req, file, cb) {
     cb(null, "./upload");
   },
   filename: function (_req, file, cb) {
@@ -18,7 +18,11 @@ const storage = multer.diskStorage({
 const uploadImg = multer({ storage: storage }).single("Image");
 // user registration functionality
 
-const registerUser = (req, res) => {
+const registerUser = async (req, res) => {
+  let user = await User.findOne({ email: req.body.email });
+  if (user) {
+    return res.status(400).send("That user already exisits!");
+  }
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     const { username, email, phone, password, confirmPassword } = req.body;
 
@@ -26,6 +30,8 @@ const registerUser = (req, res) => {
       return res.status(500).json({
         error: "INVALID CREADINTIALS",
       });
+
+      // checking if user is already registered end
     } else {
       let user = new User({
         _id: new mongoose.Types.ObjectId(),
@@ -56,17 +62,12 @@ const registerUser = (req, res) => {
             });
           });
       }
-      //  here to strart
-      // const User = user.findOne({ email: req.body.email });
-      // if (user) {
-      //   return res.status(400).send(" That user already exisits!");
-      // }else{}
     }
   });
 };
 
 // get user list from db only for admin section
-const getUserList = (_req, res) => {
+const getUserList = async (_req, res) => {
   User.find({})
     // .populate("user")
 
@@ -76,7 +77,7 @@ const getUserList = (_req, res) => {
 };
 
 // login user  functionality
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   User.find({ username: req.body.username })
     .exec()
     .then((user) => {
@@ -93,6 +94,7 @@ const loginUser = (req, res) => {
             msg: "Wrong password",
           });
         }
+        // token generating
         if (result) {
           const token = jwt.sign(
             {
@@ -102,6 +104,7 @@ const loginUser = (req, res) => {
             },
             // this is secret key
             "this is dummy text",
+            //  here we provide token expiry time
             {
               expiresIn: "24h",
             }
@@ -116,7 +119,7 @@ const loginUser = (req, res) => {
         }
       });
     })
-    .catch((err) => {
+    .catch((_err) => {
       res.status(500).json({
         responceData: result,
         msg: "success",
@@ -125,6 +128,7 @@ const loginUser = (req, res) => {
     });
 };
 // exporting the controller modules
+
 module.exports = {
   registerUser,
   loginUser,

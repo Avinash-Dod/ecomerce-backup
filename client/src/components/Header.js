@@ -1,5 +1,14 @@
 
 import { Link } from "react-router-dom";
+function tabBar() {
+  var x = document.getElementById("navbarResponsive");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
 
 
 function Header() {
@@ -9,7 +18,7 @@ function Header() {
         <nav className="navbar navbar-expand-lg">
           <div className="container">
             <a className="navbar-brand" href="index.html"><h2><i className="fa fa-shopping-bag" aria-hidden="true"></i> Imperial <em>Shopping</em></h2></a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" onClick={tabBar} data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarResponsive">

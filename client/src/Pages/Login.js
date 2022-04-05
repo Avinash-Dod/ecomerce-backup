@@ -67,14 +67,14 @@ axios(config)
 
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>
-                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} />
+                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} required/>
                   </div>
 
 
 
                   <div className="input-container">
                     <i className="fa fa-key icon"></i>
-                    <input className="input-field" type="password" placeholder="Password" name="psw" onChange={(e) => setPassword(e.target.value)} value={password} />
+                    <input className="input-field" type="password" placeholder="Password" name="psw" onChange={(e) => setPassword(e.target.value)} value={password} required/>
                   </div>
 
 

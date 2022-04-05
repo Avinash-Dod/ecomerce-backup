@@ -29,7 +29,6 @@ const userSchmea = new mongoose.Schema({
   },
   phone: {
     type: Number,
-    unique: true,
     minlength: 10,
   },
 
