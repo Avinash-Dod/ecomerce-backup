@@ -31,7 +31,7 @@ const SignUp = () => {
 
     var config = {
       method: 'post',
-      url: 'http://localhost:3001/user/signup',
+      url: 'http://localhost:5000/user/signup',
       headers: {
         'Content-Type': 'application/json'
       },

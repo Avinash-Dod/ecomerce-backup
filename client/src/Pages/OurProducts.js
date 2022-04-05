@@ -5,8 +5,6 @@ import ProductHover from "../components/productHover";
 import Footer from "../components/Footer";
 import SearchBar from "../components/Search";
 
-
-
 const productData = productDetail.productData;
 const OurProducts = () => {
 

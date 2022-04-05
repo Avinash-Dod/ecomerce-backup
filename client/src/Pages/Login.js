@@ -14,7 +14,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const userData = {
-    userName: username,
+    username: username,
     password: password
   };
 
@@ -26,10 +26,10 @@ const Login = () => {
 
     var config = {
       method: 'post',
-      url: 'http://localhost:3001/user/login',
+      url: 'http://localhost:5000/user/login',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic AXVubzpwQDU1dzByYM=='
+        'Authorization': 'Bearer ' + localStorage.getItem('Token'),
       },
       data: data
     };
@@ -68,7 +68,7 @@ const Login = () => {
                 <div className="Head">
                   <h2>Login Form</h2>
                 </div>
-                <form style={st} onSubmit={onSubmitHandler}>
+                <form style={st} onSubmit={onSubmitHandler} action="post">
 
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>

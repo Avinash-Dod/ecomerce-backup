@@ -1,5 +1,5 @@
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -23,6 +23,7 @@ app.use("/user", UserRoute);
 
 app.use((req, res, next) => {
      res.header("Access-Control-Allow-Origin", "*");
+     res.header("Authorization", "token");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
      if (req.method === 'OPTIONS') {
          res.header("Access-Control-Allow-Methods", "PUT, POST, DELETE, GET");
