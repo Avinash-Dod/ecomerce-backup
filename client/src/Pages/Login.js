@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useState } from "react";
@@ -37,6 +37,7 @@ const Login = () => {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        
       })
       .catch(function (error) {
         console.log(error);
