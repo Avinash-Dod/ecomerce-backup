@@ -40,10 +40,18 @@ const SignUp = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        
+          alert("Registered successfully.");  
+        
+        
+        
       })
       .catch(function (error) {
         console.log(error);
+      
+          alert("login failed.")
+      
+        
       });
 
     console.log(userData)

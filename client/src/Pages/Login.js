@@ -36,11 +36,15 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+       
+          alert("login successfull");  
+       
+        
         
       })
       .catch(function (error) {
         console.log(error);
+        alert("login failed")
       });
 
 
