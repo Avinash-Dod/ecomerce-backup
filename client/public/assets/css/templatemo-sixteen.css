@@ -142,6 +142,7 @@ a.filled-button:hover {
 
 .dropdown-content {
   display: none;
+  text-align: justify;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;

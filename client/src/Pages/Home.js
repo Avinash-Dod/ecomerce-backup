@@ -41,7 +41,7 @@ function Home() {
                             <a href="  "><img src={exp.image} alt="productnotfound" /></a>
                             <div className="product__discount__percent">-20%</div>
                             <ProductHover/>
-                            <button ></button>
+                            
                           </div>
                           <div className="product__discount__item__text">
                             <span>Dried Fruit</span>

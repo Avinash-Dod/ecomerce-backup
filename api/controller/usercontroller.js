@@ -77,7 +77,7 @@ const getUserList = async (_req, res) => {
 };
 
 // login user  functionality
-const loginUser = async (req, res) => {
+const loginUser = (req, res) => {
   User.find({ username: req.body.username })
     .exec()
     .then((user) => {
@@ -94,7 +94,6 @@ const loginUser = async (req, res) => {
             msg: "Wrong password",
           });
         }
-        // token generating
         if (result) {
           const token = jwt.sign(
             {
@@ -104,7 +103,6 @@ const loginUser = async (req, res) => {
             },
             // this is secret key
             "this is dummy text",
-            //  here we provide token expiry time
             {
               expiresIn: "24h",
             }
@@ -119,7 +117,7 @@ const loginUser = async (req, res) => {
         }
       });
     })
-    .catch((_err) => {
+    .catch((err) => {
       res.status(500).json({
         responceData: result,
         msg: "success",

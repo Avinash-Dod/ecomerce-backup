@@ -9,46 +9,51 @@ const st = {
   "height": "fit-content",
 }
 
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const userData = {
+    userName: username,
+    password: password
+  };
+
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    const userData = {
-      userName: username,
-      password: password,
+    var axios = require('axios');
+    var data = JSON.stringify(userData);
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:3001/user/login',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic AXVubzpwQDU1dzByYM=='
+      },
+      data: data
     };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
 
     console.log(userData)
     setUsername('');
     setPassword('');
 
-    var axios = require('axios');
-var data = JSON.stringify( userData );
-
-var config = {
-  method: 'post',
-  url: 'http://localhost:3001/user/login',
-  headers: { 
-    'Content-Type': 'application/json',
-    
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
-
-    
 
 
   };
+
+
+
 
 
   return (
@@ -67,14 +72,14 @@ axios(config)
 
                   <div className="input-container well">
                     <i className="fa fa-user icon"></i>
-                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} required/>
+                    <input className="input-field" type="text" placeholder="Username" name="username" onChange={(e) => setUsername(e.target.value)} value={username} required />
                   </div>
 
 
 
                   <div className="input-container">
                     <i className="fa fa-key icon"></i>
-                    <input className="input-field" type="password" placeholder="Password" name="psw" onChange={(e) => setPassword(e.target.value)} value={password} required/>
+                    <input className="input-field" type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
                   </div>
 
 
