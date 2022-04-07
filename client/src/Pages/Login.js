@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useState } from "react";
@@ -36,11 +36,11 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-       
-          alert("login successfull");  
-       
-        
-        
+
+        alert("login successfull");
+
+
+
       })
       .catch(function (error) {
         console.log(error);
@@ -49,7 +49,7 @@ const Login = () => {
 
 
 
-    console.log(userData)
+    // console.log(userData)
     setUsername('');
     setPassword('');
 

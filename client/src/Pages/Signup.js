@@ -54,7 +54,7 @@ const SignUp = () => {
         
       });
 
-    console.log(userData)
+    // console.log(userData)
     setUsername('');
     setPassword('');
     setCpassword('')
