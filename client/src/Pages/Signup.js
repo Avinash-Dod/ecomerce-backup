@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import './Login_signup.css'
@@ -9,6 +10,7 @@ const st = {
 }
 
 const SignUp = () => {
+  
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -41,7 +43,8 @@ const SignUp = () => {
     axios(config)
       .then(function (response) {
         
-          alert("Registered successfully.");  
+          alert("Registered successfully."); 
+          
         
         
         

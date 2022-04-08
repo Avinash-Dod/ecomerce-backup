@@ -3,12 +3,12 @@ import Header from "../components/Header"
 import productDetail from '../userData.json'
 import ProductHover from "../components/productHover";
 import Footer from "../components/Footer";
-import SearchBar from "../components/Search";
+
+import { useState } from "react";
 
 const productData = productDetail.productData;
 const OurProducts = () => {
-
-
+  const [search, setSearch] = useState('')
 
   return (
     <>
@@ -21,10 +21,14 @@ const OurProducts = () => {
             <div className="col-md-12">
               <div className="section-heading">
                 <h2>Latest Products</h2>
-                <SearchBar />
-               
+                <form action="#" >
+                  <input type="text" placeholder="What do yo u need?" onChange={(e) => setSearch(e.target.value)} />
+                  <button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i> </button>
+                </form>
 
-  
+
+
+
 
                 <a href="/ourproducts">view all products <i className="fa fa-angle-right"></i></a>
 
@@ -38,9 +42,14 @@ const OurProducts = () => {
                 <div className="product__discount">
 
                   <div className="row">
-
-                    {productData.map((exp) => (
-                      <div className="col-lg-3 ">
+                    {productData.filter((post) => {
+                      if (search === '') {
+                        return post;
+                      } else if (post.title.toLowerCase().includes(search.toLowerCase())) {
+                        return post;
+                      }
+                    }).map((exp, index) => (
+                      <div className="col-lg-3 " key={index}>
                         <div className="product__discount__item">
                           <div className="product__discount__item__pic ">
                             <a href="  "><img src={exp.image} alt="productnotfound" /></a>
@@ -49,8 +58,8 @@ const OurProducts = () => {
                           </div>
                           <div className="product__discount__item__text">
                             <span>Dried Fruit</span>
-                            <h5><a href=" ">Raisin’n’nuts</a></h5>
-                            <div className="product__item__price">$30.00 <span>$36.00</span></div>
+                            <h5><a href=" ">{exp.title}</a></h5>
+                            <div className="product__item__price">{exp.price}<span>$36.00</span></div>
                           </div>
                         </div>
                       </div>
@@ -63,7 +72,7 @@ const OurProducts = () => {
                     <div className="row">
                       <div className="col-lg-4 col-md-5">
                         <div className="filter__sort">
-                          <span>Sort By </span> 
+                          <span>Sort By </span>
                           <select>
                             <option value="0"> Default</option>
                             <option value="0"> Default</option>
@@ -100,7 +109,7 @@ const OurProducts = () => {
 
 
       <Footer />
-    
+
     </>
   )
 }

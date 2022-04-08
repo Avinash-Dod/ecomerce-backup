@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import './Login_signup.css'
 const st = {
   "max-width": "500px",
@@ -13,6 +14,7 @@ const st = {
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate= useNavigate();
   const userData = {
     username: username,
     password: password
@@ -36,10 +38,8 @@ const Login = () => {
 
     axios(config)
       .then(function (response) {
-
-        alert("login successfull");
-
-
+        localStorage.setItem('login',JSON.stringify(response) )
+        navigate("/ourproducts") 
 
       })
       .catch(function (error) {
