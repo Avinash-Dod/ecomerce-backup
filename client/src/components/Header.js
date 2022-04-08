@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function tabBar() {
   var x = document.getElementById("navbarResponsive");
   if (x.style.display === "block") {
@@ -23,24 +23,24 @@ function Header() {
             </button>
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item active ">
-                  <Link className="nav-link" to="/" ><i className="fa fa-home" aria-hidden="true"></i> Home</Link>
+                <li className="nav-item  ">
+                  <NavLink className="nav-link" to="/" ><i className="fa fa-home" aria-hidden="true"></i> Home</NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contact"><i className="fa fa-envelope" aria-hidden="true"></i> Contact</Link>
+                  <NavLink className="nav-link"  activeClassName="active" to="/contact"><i className="fa fa-envelope" aria-hidden="true"></i> Contact</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about"><i className="fa fa-info-circle" aria-hidden="true"></i> About</Link>
+                  <NavLink className="nav-link" activeClassName="active" to="/about"><i className="fa fa-info-circle" aria-hidden="true"></i> About</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login"><i className="fa fa-user" aria-hidden="true"></i> Login</Link>
+                  <NavLink className="nav-link" activeClassName="active" to="/login"><i className="fa fa-user" aria-hidden="true"></i> Login</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</Link>
+                  <NavLink className="nav-link" activeClassName="active" to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/favourite"><i className="fa fa-heart" aria-hidden="true"></i> Favourite</Link>
+                  <NavLink className="nav-link" activeClassName="active"  to="/favourite"><i className="fa fa-heart" aria-hidden="true"></i> Favourite</NavLink>
                 </li>
               </ul>
             </div>

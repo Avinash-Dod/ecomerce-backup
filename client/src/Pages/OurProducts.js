@@ -22,13 +22,9 @@ const OurProducts = () => {
               <div className="section-heading">
                 <h2>Latest Products</h2>
                 <form action="#" >
-                  <input type="text" placeholder="What do yo u need?" onChange={(e) => setSearch(e.target.value)} />
+                  <input type="text" placeholder="What do you need?" onChange={(e) => setSearch(e.target.value)} />
                   <button type="submit" class="site-btn"><i class="fa fa-search" aria-hidden="true"></i> </button>
                 </form>
-
-
-
-
 
                 <a href="/ourproducts">view all products <i className="fa fa-angle-right"></i></a>
 
@@ -45,7 +41,7 @@ const OurProducts = () => {
                     {productData.filter((post) => {
                       if (search === '') {
                         return post;
-                      } else if (post.title.toLowerCase().includes(search.toLowerCase())) {
+                      } else if ((post.title.toLowerCase().includes(search.toLowerCase())) || (post.price.toLowerCase().includes(search.toLowerCase())) || (post.description.toLowerCase().includes(search.toLowerCase()))) {
                         return post;
                       }
                     }).map((exp, index) => (
@@ -57,7 +53,7 @@ const OurProducts = () => {
                             <ProductHover />
                           </div>
                           <div className="product__discount__item__text">
-                            <span>Dried Fruit</span>
+                            <span>{exp.description}</span>
                             <h5><a href=" ">{exp.title}</a></h5>
                             <div className="product__item__price">{exp.price}<span>$36.00</span></div>
                           </div>
